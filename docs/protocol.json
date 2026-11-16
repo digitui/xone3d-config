@@ -1,0 +1,36 @@
+{
+  "device": {
+    "name": "Allen & Heath / Ploytec Xone:3D",
+    "idVendor": "0x0A4A",
+    "idProduct": "0xFF00",
+    "usb_device_interface": "IOUSBDeviceInterface187",
+    "match": "IOServiceMatching(IOUSBDevice) + idVendor/idProduct"
+  },
+  "control_transfer_constants": { "wValue": "0x0100", "wIndex": "0x0001", "endpoint": 0 },
+  "bmRequestType": {
+    "0xC2": "IN  | Vendor | recipient Endpoint(2)",
+    "0x42": "OUT | Vendor | recipient Endpoint(2)"
+  },
+  "operations": [
+    { "name": "getVersion",    "bRequest": "0x00", "bmRequestType": "0xC2", "dir": "IN",  "wLength": 16, "data": "16-byte version blob", "certainty": "certain" },
+    { "name": "readRouting",   "bRequest": "0x01", "bmRequestType": "0xC2", "dir": "IN",  "wLength": 2,  "data": "uint16 routing word (LE)", "certainty": "certain" },
+    { "name": "sendRouting",   "bRequest": "0x02", "bmRequestType": "0x42", "dir": "OUT", "wLength": 2,  "data": "uint16 routing word (LE)", "certainty": "certain" },
+    { "name": "startFirmware", "bRequest": "0x05", "bmRequestType": "0x42", "dir": "OUT", "wLength": 0,  "data": "none", "certainty": "certain" },
+    { "name": "readFirmware",  "bRequest": "0x06", "bmRequestType": "0xC2", "dir": "IN",  "wLength": "n", "data": "firmware bytes", "certainty": "certain" },
+    { "name": "writeFirmware", "bRequest": "0x07", "bmRequestType": "0x42", "dir": "OUT", "wLength": "n", "data": "firmware bytes", "certainty": "certain" }
+  ],
+  "routing_word_bits": {
+    "note": "Reconstructed; verify labels against hardware. Raw read/write is exact.",
+    "0-1":  "Sound Input 2 / Digital Output low selector",
+    "2-3":  "Alternate input selector (when input-1 index > 1)",
+    "4-7":  "MIDI channel (0-15)",
+    "8":    "Sound Card Mode select",
+    "9":    "Sound Input 1 present",
+    "10":   "Sound Input 1 sub-selection",
+    "14":   "Sound Input 3 enable",
+    "15":   "MIDI mapping select"
+  },
+  "architectures_in_original_binary": ["ppc", "i386"],
+  "runs_on_apple_silicon_natively": false,
+  "reason": "No arm64/x86_64 slice; Rosetta 2 does not translate i386 or PPC; 32-bit unsupported since macOS 10.15."
+}
