@@ -117,6 +117,9 @@ tools/    xone3d.py — libusb/pyusb command-line equivalent
 docs/     reverse-engineering report, protocol spec, screenshot
 ```
 
+## Support
+If this helped you configure your Xone3D, you can [buy me a coffee](https://buymeacoffee.com/digitui). Thank you!
+
 ## Disclaimer
 This is an independent, interoperability-focused reimplementation created from
 clean-room reverse engineering of the USB protocol. It is **not affiliated with,
