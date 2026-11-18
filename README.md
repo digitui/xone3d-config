@@ -1,5 +1,7 @@
 # Xone:3D Configuration (native Apple Silicon)
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-support-orange)](https://buymeacoffee.com/digitui)
+
 A native **arm64 macOS** replacement for the long-dead Ploytec *Xone3D.app*
 configuration utility for the **Allen&nbsp;&&nbsp;Heath Xone:3D** DJ mixer /
 USB soundcard.
